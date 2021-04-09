@@ -6,14 +6,13 @@
 -->
 <html>
 	<head>
-		<title>Quantegy</title>
+		<title>quantegy trading</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 	</head>
 	<body class="is-preload">
-
 		<!-- Wrapper -->
 			<div id="wrapper">
 
@@ -31,12 +30,16 @@
 						<nav>
 							<ul>
 								<li><a href="#intro">Intro</a></li>
-								<li><a href="#dash">Dash</a></li>
+								<li><a href="https://g-a2e2e26f7d.grafana-workspace.us-east-1.amazonaws.com/d/fRthxJ8Gk/quantegy?orgId=1&refresh=1m" target="_blank">Dash</a></li>
 								<li><a href="#about">About</a></li>
 								<li><a href="#contact">Contact</a></li>
 								<!--<li><a href="#elements">Elements</a></li>-->
 							</ul>
 						</nav>
+						<ul class="icons">
+							<li><a href="https://twitter.com/quantegytrading" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="https://github.com/quantegytrading" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+						</ul>
 					</header>
 
 				<!-- Main -->
@@ -46,22 +49,23 @@
 							<article id="intro">
 								<h2 class="major">Intro</h2>
 								<span class="image main"><img src="images/pic01.jpg" alt="" /></span>
-								<p>Based on the knowledge that there is always a crypto currency that is up substantially on any given day, our algorithms identify trending coins and leverage that forsight for our clients.</p>
-								<p>With several algorithms available for use, there is one that will fit your risk profile and provide you with commensurate gains</p>
+								<!--p>Based on the knowledge that there is always a crypto currency that is up substantially on any given day, our algorithms identify trending coins and leverage that forsight for our clients.</p>
+								<p>With several algorithms available for use, there is one that will fit your risk profile and provide you with commensurate gains</p-->
 							</article>
 
 						<!-- Work -->
-							<article id="dash">
+							<article id="dash" onload="embedDashboard()">
 								<h2 class="major">Dash</h2>
 								<span class="image main"><img src="images/pic02.jpg" alt="" /></span>
-								<p>You can view our backtest dashboards for each algorithm available, as well as our main fund real-time dashboard</p>
+								<!--p>You can view our backtest dashboards for each algorithm available, as well as our main fund real-time dashboard</p-->
+								<div id="dashboardContainer"></div>
 							</article>
 
 						<!-- About -->
 							<article id="about">
 								<h2 class="major">About</h2>
 								<span class="image main"><img src="images/pic03.jpg" alt="" /></span>
-								<p>Developed in 2021 by our team of devs and crypto traders, the Quantegy platform provides realized gains to meet various risk profiles</p>
+								<!--p>Developed in 2021 by our team of devs and crypto traders, the Quantegy platform provides realized gains to meet various risk profiles</p-->
 							</article>
 
 						<!-- Contact -->
