@@ -21,8 +21,7 @@
 				<!-- Header -->
 					<header id="header">
 						<div class="logo">
-							<!--span class="icon fa-gem">&#945</span-->
-							<span>&#945</span>
+							<span class="icon fa-gem">&#945</span>
 						</div>
 						<div class="content">
 							<div class="inner">
@@ -101,32 +100,7 @@
 									<li><a href="https://github.com/agsmith/quantegy" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
 								</ul>
 							</article>
-<div>
-  <canvas id="myChart"></canvas>
-</div>
-						
-<script>
-  const ctx = document.getElementById('myChart');
 
-  new Chart(ctx, {
-    type: 'bar',
-    data: {
-      labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-      datasets: [{
-        label: '# of Votes',
-        data: [12, 19, 3, 5, 2, 3],
-        borderWidth: 1
-      }]
-    },
-    options: {
-      scales: {
-        y: {
-          beginAtZero: true
-        }
-      }
-    }
-  });
-</script>
 						<!-- Elements
 							<article id="elements">
 								<h2 class="major">Elements</h2>
@@ -371,6 +345,32 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
  -->
 
 					</div>
+<div>
+  <canvas id="myChart"></canvas>
+</div>
+						
+<script>
+  const ctx = document.getElementById('myChart');
+
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+      datasets: [{
+        label: '# of Votes',
+        data: [12, 19, 3, 5, 2, 3],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+</script>
 				<!-- Footer -->
 					<footer id="footer">
 						<p class="copyright">&copy; 2024: <a href="https://quantegy.io">Quantegy, Inc</a>.</p>
