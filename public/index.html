@@ -105,7 +105,7 @@
             <script>
                 const ctx = document.getElementById('sportsballs');
 
-                d3.csv('https://sportsballs.s3.amazonaws.com/sportsballs.csv')
+                d3.csv('sportsballs.csv')
                     .then(makeChart);
 
                 function makeChart(data) {
