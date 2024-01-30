@@ -1,4 +1,4 @@
-Date,Beginning-Total,Wagered,Won-Lost,New-Total,ROI,Notes
+date,beg_total,wagered,won_lost,new_total,roi,notes
 "Sun, Jan 21, 2024",$435.00,$300.00,$52.94,$487.94,18%,
 "Mon, Jan 22, 2024",$487.94,$60.00,$13.56,$501.50,23%,
 "Tue, Jan 23, 2024",$501.10,$220.00,$129.63,$630.73,59%,
