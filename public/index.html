@@ -29,7 +29,7 @@
                 <nav>
                     <ul>
                         <li><a href="#intro">Intro</a></li>
-                        <li><a href="https://g-a2e2e26f7d.grafana-workspace.us-east-1.amazonaws.com/d/ktUMSE8Gz/quantegy-mobile?orgId=1&refresh=1h" target="_blank">Dash</a></li>
+                        <li><a href="#dash">Dash</a></li>
                         <li><a href="#about">About</a></li>
                         <li><a href="#contact">Contact</a></li>
                     </ul>
@@ -55,8 +55,8 @@
                 <article id="dash" onload="embedDashboard()">
                     <h2 class="major">Dash</h2>
                     <span class="image main"><img src="images/pic02.jpg" alt="" /></span>
-                    <p>You can view our backtest dashboards for each algorithm available, as well as our main fund real-time dashboard</p>
-                    <div id="dashboardContainer"></div>
+                    <p>Daily Dashboard</p>
+                    <div><canvas id="sportsballs"></canvas></div>
                 </article>
 
                 <!-- About -->
@@ -114,10 +114,10 @@
                     new Chart(ctx, {
                         type: 'line',
                         data: {
-                        labels: dateLabels,
-                        datasets: [{
+                          labels: dateLabels,
+                          datasets: [{
                             data: totalsData
-                        }]
+                          }]
                         },
                         options: {
                           scales: {
