@@ -14,6 +14,8 @@
 	</head>
 	<body class="is-preload">
 		<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.7.0/d3.min.js"></script>
+
 
 		<!-- Wrapper -->
 			<div id="wrapper">
@@ -346,30 +348,36 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 
 					</div>
 <div>
-  <canvas id="myChart"></canvas>
+  <canvas id="sportsballs"></canvas>
 </div>
 						
 <script>
-  const ctx = document.getElementById('myChart');
+  const ctx = document.getElementById('sportsballs');
 
-  new Chart(ctx, {
-    type: 'bar',
-    data: {
-      labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-      datasets: [{
-        label: '# of Votes',
-        data: [12, 19, 3, 5, 2, 3],
-        borderWidth: 1
-      }]
-    },
-    options: {
-      scales: {
-        y: {
-          beginAtZero: true
-        }
-      }
-    }
-  });
+  d3.csv('https://sportsballs.s3.amazonaws.com/sportsballs.csv')
+    .then(makeChart);
+
+  function makeChart(data) {
+	  var dateLabels = data.map(function(d) {return d."Date"});
+          var totalsData = data.map(function(d) {return d."New Total"});
+	  new Chart(ctx, {
+	    type: 'line',
+	    data: {
+	      labels: dateLabels,
+	      datasets: [{
+	        data: totalsData
+	      }]
+	    },
+	    options: {
+	      scales: {
+	        y: {
+	          beginAtZero: true
+	        }
+	      }
+	    }
+	  });
+
+  }
 </script>
 				<!-- Footer -->
 					<footer id="footer">
