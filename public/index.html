@@ -55,7 +55,7 @@
                 <!-- Work -->
                 <article id="dash" onload="embedDashboard()">
                     <h2 class="major">Dashboard</h2>
-		    <p>Average Daily ROI: 15%</p>
+		    <p id="datetime">Average Daily ROI: 15% as of </p>
                     <div><canvas id="sportsballs"></canvas></div>
                 </article>
 
@@ -78,6 +78,12 @@
             </div>
 						
             <script>
+	 	var now = new Date();
+  		var datetime = now.toLocaleString();
+
+  		// Insert date and time into HTML
+  		document.getElementById("datetime").innerHTML = datetime;
+		    
                 const ctx = document.getElementById('sportsballs');
 
                 d3.csv('sportsballs.csv')
