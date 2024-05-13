@@ -104,7 +104,7 @@
 
                 function makeChart(data) {
                     var dateLabels = data.map(function(d) {return d.date});
-                    var totalsData = data.map(function(d) {return d.new_total});
+                    var totalsData = data.map(function(d) {return d.total});
                     new Chart(ctx, {
                         type: 'line',
                         data: {
