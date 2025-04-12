@@ -1,4 +1,4 @@
-<!DOCTYPE HTML>
+I'm<!DOCTYPE HTML>
 <html>
 	<head>
 		<title>quantegy</title>
@@ -99,10 +99,14 @@
 		    
                 const ctx = document.getElementById('sportsballs');
 
-                d3.csv('sportsballs.csv')
-                    .then(makeChart);
 
-                function makeChart(data) {
+                d3.csv('sportsballs.csv')
+                    .then(makeChart(data, 0, 150));
+
+                d3.csv('sportsballs.csv')
+                    .then(makeChart(data, 300, 1500));
+
+                function makeChart(data, ymin, ymax) {
                     var dateLabels = data.map(function(d) {return d.date});
                     var totalsData = data.map(function(d) {return d.total});
                     new Chart(ctx, {
@@ -115,8 +119,8 @@
        			  plugins: { legend: { display: false } },
                           scales: {
                             y: {
-                              min: 300,
-                              max: 15000,
+                              min: ymin,
+                              max: ymax,
                             }
                           }
                         }
