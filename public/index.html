@@ -86,19 +86,13 @@ I'm<!DOCTYPE HTML>
                 </article>
 
             </div>
-<!--             <div>
-                <canvas id="sportsballs"></canvas>
-            </div> -->
 						
             <script>
-	 	// var now = new Date();
-  	// 	var datetime = now.toLocaleString();
-
-  	// 	// Insert date and time into HTML
-  	// 	document.getElementById("datetime").innerHTML = datetime;
 		    
                 const ctx = document.getElementById('sportsballs');
 
+              d3.csv('sportsballs25.csv')
+                    .then(makeChart25);
 
                 d3.csv('sportsballs.csv')
                     .then(makeChart);
@@ -119,6 +113,28 @@ I'm<!DOCTYPE HTML>
                             y: {
                               min: 300,
                               max: 15000,
+                            }
+                          }
+                        }
+                    });
+
+                }
+
+                function makeChart25(data) {
+                    var dateLabels = data.map(function(d) {return d.date});
+                    var totalsData = data.map(function(d) {return d.total});
+                    new Chart(ctx, {
+                        type: 'line',
+                        data: {
+                          labels: dateLabels,
+                          datasets: [{ data: totalsData }]
+                        },
+                        options: {
+                          plugins: { legend: { display: false } },
+                          scales: {
+                            y: {
+                              min: 0,
+                              max: 300,
                             }
                           }
                         }
