@@ -101,11 +101,9 @@ I'm<!DOCTYPE HTML>
 
 
                 d3.csv('sportsballs.csv')
-                    .then(makeChart(data, 0, 150));
+                    .then(makeChart(data, 300, 15000));
 
-                d3.csv('sportsballs.csv')
-                    .then(makeChart(data, 300, 1500));
-
+             
                 function makeChart(data, ymin, ymax) {
                     var dateLabels = data.map(function(d) {return d.date});
                     var totalsData = data.map(function(d) {return d.total});
