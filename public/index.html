@@ -165,11 +165,25 @@
                     var totalsData = data.map(function (d) {
                         return d.total;
                     });
+                    var tenData = data.map(function (d) {
+                        return d.ten;
+                    });
                     new Chart(ctx25, {
                         type: "line",
                         data: {
                             labels: dateLabels,
-                            datasets: [{ data: totalsData }],
+                            datasets: [
+                                { 
+                                    data: totalsData 
+                                }
+                                {
+                                    label: 'D0',
+                                    data: tenData,
+                                    borderColor: Utils.CHART_COLORS.red,
+                                    backgroundColor: Utils.transparentize(Utils.CHART_COLORS.red),
+                                    hidden: false
+                                },
+                            ],
                         },
                         options: {
                             plugins: { legend: { display: false } },
