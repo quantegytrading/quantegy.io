@@ -207,36 +207,24 @@
                         return d.TotalWins/d.TotalPicks * 100;
                     });
                     var above5Data = data.map(function (d) {
-                        if (d.Above5Wins == 0) {
-                            d.Above5Wins = 1
-                        }
                         if (d.Above5Picks == 0) {
                             d.Above5Picks = 1
                         }
                         return d.Above5Wins/d.Above5Picks * 100;
                     });
                     var above6Data = data.map(function (d) {
-                        if (d.Above6Wins == 0) {
-                            d.Above6Wins = 1
-                        }
                         if (d.Above6Picks == 0) {
                             d.Above6Picks = 1
                         }
                         return d.Above6Wins/d.Above6Picks * 100;
                     });
                     var above7Data = data.map(function (d) {
-                        if (d.Above7Wins == 0) {
-                            d.Above7Wins = 1
-                        }
                         if (d.Above7Picks == 0) {
                             d.Above7Picks = 1
                         }
                         return d.Above7Wins/d.Above7Picks * 100;
                     });
                     var above8Data = data.map(function (d) {
-                        if (d.Above8Wins == 0) {
-                            d.Above8Wins = 1
-                        }
                         if (d.Above8Picks == 0) {
                             d.Above8Picks = 1
                         }
