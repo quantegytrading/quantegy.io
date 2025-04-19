@@ -84,6 +84,7 @@
                         </tr>
                     </table>
                     <div><canvas id="sportsballs25"></canvas></div>
+                    <div><canvas id="pickTrends25"></canvas></div>
                     <div><canvas id="sportsballs"></canvas></div>
                 </article>
 
@@ -129,9 +130,11 @@
             <script>
                 const ctx = document.getElementById("sportsballs");
                 const ctx25 = document.getElementById("sportsballs25");
+                const pt25 = document.getElementById("pickTrends25");
 
                 d3.csv("sportsballs25.csv").then(makeChart25);
                 d3.csv("sportsballs.csv").then(makeChart);
+                d3.csv("pickTrends2025.csv").then(pickTrends25);
 
                 function makeChart(data) {
                     var dateLabels = data.map(function (d) {
@@ -191,6 +194,68 @@
                                 y: {
                                     min: 0,
                                     max: 300,
+                                },
+                            },
+                        },
+                    });
+                }
+                function pickTrends25(data) {
+                    var dateLabels = data.map(function (d) {
+                        return d.Date;
+                    });
+                    var totalsData = data.map(function (d) {
+                        return d.TotalWins/d.TotalPicks * 100;
+                    });
+                    var above5Data = data.map(function (d) {
+                        return d.Above5Wins/d.Above5Picks * 100;
+                    });
+                    var above6Data = data.map(function (d) {
+                        return d.Above6Wins/d.Above6Picks * 100;
+                    });
+                    var above7Data = data.map(function (d) {
+                        return d.Above7Wins/d.Above7Picks * 100;
+                    });
+                    var above8Data = data.map(function (d) {
+                        return d.Above8Wins/d.Above8Picks * 100;
+                    });
+                    new Chart(ctx25, {
+                        type: "line",
+                        data: {
+                            labels: dateLabels,
+                            datasets: [
+                                { 
+                                    label: `Total Wins',
+                                    data: totalsData,
+                                    borderColor: '#00FF00',
+                                },
+                                {
+                                    label: 'Wins Above .500',
+                                    data: above5Data,
+                                    borderColor: '#FF0000',
+                                },
+                                {
+                                    label: 'Wins Above .600',
+                                    data: above6Data,
+                                    borderColor: '#660000',
+                                },
+                                {
+                                    label: 'Wins Above .700',
+                                    data: above7Data,
+                                    borderColor: '#330000',
+                                },
+                                    {
+                                    label: 'Wins Above .800',
+                                    data: above8Data,
+                                    borderColor: '#110000',
+                                },
+                            ],
+                        },
+                        options: {
+                            plugins: { legend: { display: false } },
+                            scales: {
+                                y: {
+                                    min: 0,
+                                    max: 100,
                                 },
                             },
                         },
