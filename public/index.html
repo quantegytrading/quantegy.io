@@ -218,7 +218,7 @@
                     var above8Data = data.map(function (d) {
                         return d.Above8Wins/d.Above8Picks * 100;
                     });
-                    new Chart(ctx25, {
+                    new Chart(pt25, {
                         type: "line",
                         data: {
                             labels: dateLabels,
@@ -226,27 +226,27 @@
                                 { 
                                     label: 'Total Wins',
                                     data: totalsData,
-                                    borderColor: '#00FF00',
+                                    borderColor: '#3399FF',
                                 },
                                 {
                                     label: 'Wins Above .500',
                                     data: above5Data,
-                                    borderColor: '#FF0000',
+                                    borderColor: '#99FF33',
                                 },
                                 {
                                     label: 'Wins Above .600',
                                     data: above6Data,
-                                    borderColor: '#660000',
+                                    borderColor: '#FFFF33',
                                 },
                                 {
                                     label: 'Wins Above .700',
                                     data: above7Data,
-                                    borderColor: '#330000',
+                                    borderColor: '#FF9933',
                                 },
                                     {
                                     label: 'Wins Above .800',
                                     data: above8Data,
-                                    borderColor: '#110000',
+                                    borderColor: '#FF3333',
                                 },
                             ],
                         },
@@ -254,8 +254,8 @@
                             plugins: { legend: { display: false } },
                             scales: {
                                 y: {
-                                    min: 0,
-                                    max: 100,
+                                    min: -20,
+                                    max: 120,
                                 },
                             },
                         },
