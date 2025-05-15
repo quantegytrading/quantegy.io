@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+    <head>
+        <title>SportzBallz</title>
+        <meta charset="utf-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, user-scalable=no"
+        />
+        <link rel="stylesheet" href="assets/css/main.css" />
+        <noscript
+            ><link rel="stylesheet" href="assets/css/noscript.css"
+        /></noscript>
+    </head>
+    <body class="is-preload">
+        <div id="wrapper">
+            <div id="bg"></div>
+            <div id="overlay"></div>
+            <div id="main">
+                <!-- Header -->
+                <header id="header">
+                    <h1>SportzBallz</h1>
+                    <p>
+                        Artificially Intelligent Athletic Competition
+                        Prognostication
+                    </p>
+                    <nav></nav>
+                    <nav>
+                        <ul>
+                            <li>
+                                <a
+                                    href="https://x.com/sportzballz_io"
+                                    class="icon brands fa-x-twitter"
+                                    ><span class="label">Twitter</span></a
+                                >
+                            </li>
+                            <li>
+                                <a
+                                    href="https://github.com/sportzballz"
+                                    class="icon brands fa-github"
+                                    ><span class="label">Github</span></a
+                                >
+                            </li>
+                            <li>
+                                <a
+                                    href="#dash"
+                                    class="icon brands fa-think-peaks"
+                                    ><span class="label">Dashboard</span></a
+                                >
+                            </li>
+                        </ul>
+                    </nav>
+                </header>
+                <article id="dash" onload="embedDashboard()">
+                    <h2 class="major">Dashboard</h2>
+                    <table>
+                        <tr>
+                            <td><p>Average Daily ROI: 12%</p></td>
+                            <td><p></p></td>
+                        </tr>
+                    </table>
+                    <div><canvas id="sportsballs"></canvas></div>
+                </article>
+
+                <!-- Footer -->
+                <footer id="footer">
+                    <a href="mailto:sportzballz@proton.me"
+                        ><span class="copyright"
+                            >&copy; 2024 : SportzBalls Inc.</span
+                        ></a
+                    >
+                </footer>
+            </div>
+        </div>
+        <script>
+            window.onload = function () {
+                document.body.classList.remove("is-preload");
+            };
+            window.ontouchmove = function () {
+                return false;
+            };
+            window.onorientationchange = function () {
+                document.body.scrollTop = 0;
+            };
+        </script>
+        <!-- Scripts -->
+        <!-- <script src="assets/js/jquery.min.js"></script> -->
+        <script src="assets/js/browser.min.js"></script>
+        <script src="assets/js/breakpoints.min.js"></script>
+        <script src="assets/js/util.js"></script>
+        <script src="assets/js/main.js"></script>
+    </body>
+</html>
