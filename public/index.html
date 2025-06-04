@@ -21,18 +21,19 @@
             <!-- Header -->
             <header id="header">
                 <div class="logo">
-                    <span class="icon fa-gem"></span>
+                    <span class="fa-solid fa-shield-halved"></span>
+<!--                     <span class="icon fa-gem"></span> -->
                 </div>
                 <div class="content">
                     <div class="inner">
                         <h1>Quantegy</h1>
-                        <p>immaterial algorithmic search for alpha</p>
+                        <p>Proactive Security for a Dynamic World</p>
                     </div>
                 </div>
                 <nav>
                     <ul>
-                        <li><a href="#intro">Intro</a></li>
-                        <li><a href="#dash">Dash</a></li>
+                        <li><a href="#intro">Mission Statement</a></li>
+                        <li><a href="#dash">Services</a></li>
                         <li><a href="#about">About</a></li>
                         <li><a href="#contact">Contact</a></li>
                     </ul>
@@ -55,37 +56,47 @@
             <div id="main">
                 <!-- Intro -->
                 <article id="intro">
-                    <h2 class="major">Intro</h2>
+                    <h2 class="major">Mission Statement</h2>
                     <span class="image main"
                         ><img src="images/pic03.jpg" alt=""
                     /></span>
                     <p>
-                        Welcome to Quantegy, where we are dedicated to the
-                        relentless pursuit of value and maximizing returns. At
-                        Quantegy, we believe that opportunities for profit can
-                        be found in every corner of the market, and our mission
-                        is to uncover and exploit these opportunities to their
-                        fullest potential. With a keen eye for value and a
-                        strategic approach to investing, we strive to generate
-                        the highest possible returns for our clients and
-                        stakeholders. Join us as we navigate the ever-changing
-                        landscape of the financial world, seeking out value
-                        wherever it lies, and making the most money possible
-                        along the way.
+                        At Quantegy, we empower businesses to navigate the ever-changing cybersecurity landscape with confidence. 
+                        With 25 years of experience securing Fortune 50 and National Defense companies, our CISSP-certified professionals 
+                        provide cutting-edge Virtual CISO services, advanced threat modeling, and business vulnerability analysis. 
+                        We are committed to proactive defense, ensuring our clients remain resilient against emerging cyber risks 
+                        while enabling their success in the digital age.
                     </p>
                 </article>
 
                 <!-- Work -->
-                <article id="dash" onload="embedDashboard()">
-                    <h2 class="major">Dashboard</h2>
-                    <table>
-                        <tr>
-                            <td><p>3.3x</p></td>
-                        </tr>
-                    </table>
-                    <div><canvas id="sportsballs25"></canvas></div>
-                    <div><canvas id="pickTrends25"></canvas></div>
-                    <div><canvas id="sportsballs"></canvas></div>
+                <article id="dash"">
+                    <h2 class="major">Services</h2>
+                    <span class="image main"><img src="images/pic03.jpg" alt=""/></span>
+                    <p>
+                        Quantegy.io provides a comprehensive suite of cybersecurity services designed to fortify businesses against evolving threats. 
+                        Here’s a closer look at the key services offered:
+
+                        Virtual CISO (vCISO) Services – Acting as your outsourced Chief Information Security Officer, 
+                        Quantegy.io provides strategic guidance, risk management, and compliance leadership to ensure your cybersecurity aligns with business objectives.
+
+                        Threat Modeling & Risk Assessment – Identifying potential security threats and vulnerabilities before they become a problem, 
+                        helping organizations build proactive defenses.
+
+                        Business Security Analysis – Analyzing an organization’s infrastructure, policies, and security posture to uncover weaknesses 
+                        and improve overall resilience.
+
+                        Compliance & Regulatory Guidance – Ensuring businesses meet industry regulations (such as GDPR, HIPAA, or ISO 27001), 
+                        helping them maintain security compliance standards.
+
+                        Incident Response & Crisis Management – Rapidly addressing security breaches with expert-led mitigation strategies and recovery plans to minimize damage.
+
+                        Security Awareness & Training – Educating employees on best practices to prevent breaches and improve organizational security culture.
+
+                        Penetration Testing & Vulnerability Scanning – Simulating cyberattacks to test and strengthen an organization’s defenses.
+
+                        With 25 years of experience securing Fortune 50 companies, Quantegy.io leverages industry-leading methodologies and CISSP-certified expertise to safeguard businesses against an ever-changing threat landscape.
+                    </p>
                 </article>
 
                 <!-- About -->
@@ -95,20 +106,15 @@
                         ><img src="images/pic03.jpg" alt=""
                     /></span>
                     <p>
-                        Meet Mr. Smith, a simple man with a relentless pursuit
-                        of alpha, wherever it may be found. With a keen eye for
-                        opportunity and a strategic approach to gamesmanship,
-                        Mr. Smith has built a reputation for his ability to
-                        uncover value in even the most obscure corners of the
-                        market. Armed with a deep understanding of machine
-                        learning and a passion for uncovering hidden gems, he
-                        tirelessly seeks out alpha – the measure of an assets
-                        performance relative to the market – in order to
-                        generate superior returns for his clients and
-                        stakeholders. With a track record of success and a
-                        commitment to excellence, Mr. Smith is dedicated to
-                        maximizing returns and capitalizing on opportunities
-                        wherever they may arise.
+                        Quantegy is a premier cybersecurity firm specializing in Virtual CISO (vCISO) services, threat modeling, and 
+                        comprehensive business security analysis. With a steadfast commitment to safeguarding organizations from an evolving 
+                        landscape of cyber threats, Quantegy.io helps businesses fortify their defenses against vulnerabilities that could 
+                        compromise their integrity, data, and operations.
+
+                        Staffed by highly certified CISSP professionals, the company brings unparalleled expertise to the table, ensuring that 
+                        clients receive top-tier security strategies tailored to their unique risk profiles. With 25 years of experience securing 
+                        Fortune 50 companies, Quantegy.io has built a reputation for excellence, reliability, and forward-thinking cybersecurity solutions. 
+                        Their mission is to proactively identify, mitigate, and manage risks, enabling businesses to operate securely and confidently in the digital age.
                     </p>
                 </article>
 
@@ -127,167 +133,11 @@
                 </article>
             </div>
 
-            <script>
-                const ctx = document.getElementById("sportsballs");
-                const ctx25 = document.getElementById("sportsballs25");
-                const pt25 = document.getElementById("pickTrends25");
-
-                d3.csv("sportsballs25.csv").then(makeChart25);
-                d3.csv("sportsballs.csv").then(makeChart);
-                d3.csv("pickTrends2025.csv").then(pickTrends25);
-
-                function makeChart(data) {
-                    var dateLabels = data.map(function (d) {
-                        return d.date;
-                    });
-                    var totalsData = data.map(function (d) {
-                        return d.total;
-                    });
-                    new Chart(ctx, {
-                        type: "line",
-                        data: {
-                            labels: dateLabels,
-                            datasets: [{ data: totalsData }],
-                        },
-                        options: {
-                            plugins: { legend: { display: false } },
-                            scales: {
-                                y: {
-                                    min: 300,
-                                    max: 15000,
-                                },
-                            },
-                        },
-                    });
-                }
-
-                function makeChart25(data) {
-                    var dateLabels = data.map(function (d) {
-                        return d.date;
-                    });
-                    var totalsData = data.map(function (d) {
-                        return d.total;
-                    });
-                    var tenData = data.map(function (d) {
-                        return d.ten;
-                    });
-                    new Chart(ctx25, {
-                        type: "line",
-                        data: {
-                            labels: dateLabels,
-                            datasets: [
-                                { 
-                                    label: 'Book Value',
-                                    data: totalsData,
-                                    borderColor: '#00FF00',
-                                },
-                                {
-                                    label: 'Ten Percent',
-                                    data: tenData,
-                                    borderColor: '#006600',
-                                }
-                            ],
-                        },
-                        options: {
-                            plugins: { legend: { display: false } },
-                            scales: {
-                                y: {
-                                    min: 0,
-                                    max: 700,
-                                },
-                            },
-                        },
-                    });
-                }
-                function pickTrends25(data) {
-                    var dateLabels = data.map(function (d) {
-                        return d.Date;
-                    });
-                    var totalsData = data.map(function (d) {
-                        return d.TotalWins/d.TotalPicks * 100;
-                    });
-                    var above5Data = data.map(function (d) {
-                        if (d.Above5Picks == 0) {
-                            d.Above5Picks = 1
-                        }
-                        return d.Above5Wins/d.Above5Picks * 100;
-                    });
-                    var above6Data = data.map(function (d) {
-                        if (d.Above6Picks == 0) {
-                            d.Above6Picks = 1
-                        }
-                        return d.Above6Wins/d.Above6Picks * 100;
-                    });
-                    var above7Data = data.map(function (d) {
-                        if (d.Above7Picks == 0) {
-                            d.Above7Picks = 1
-                        }
-                        return d.Above7Wins/d.Above7Picks * 100;
-                    });
-                    var above8Data = data.map(function (d) {
-                        if (d.Above8Picks == 0) {
-                            d.Above8Picks = 1
-                        }
-                        return d.Above8Wins/d.Above8Picks * 100;
-                    });
-                    new Chart(pt25, {
-                        type: "line",
-                        data: {
-                            labels: dateLabels,
-                            datasets: [
-                                { 
-                                    label: 'Total Wins',
-                                    data: totalsData,
-                                    borderColor: '#3399FF',
-                                    order: 0,
-                                },
-                                {
-                                    label: 'Wins Above .500',
-                                    data: above5Data,
-                                    borderColor: '#99FF33',
-                                    order: 1,
-                                },
-                                {
-                                    label: 'Wins Above .600',
-                                    data: above6Data,
-                                    borderColor: '#FFFF33',
-                                    order: 2,
-                                },
-                                {
-                                    label: 'Wins Above .700',
-                                    data: above7Data,
-                                    borderColor: '#FF9933',
-                                    order: 3,
-                                },
-                                    {
-                                    label: 'Wins Above .800',
-                                    data: above8Data,
-                                    borderColor: '#FF3333',
-                                    order: 4,
-                                },
-                            ],
-                        },
-                        options: {
-                            plugins: { legend: { display: false } },
-                            scales: {
-                                y: {
-                                    min: -20,
-                                    max: 120,
-                                },
-                            },
-                        },
-                    });
-                }
-            </script>
             <!-- Footer -->
             <footer id="footer">
                 <p class="copyright">
                     &copy; 2025:
                     <a href="https://quantegy.io">Quantegy, Inc</a>.
-                </p>
-                <p class="copyright">
-                    &copy; 2025:
-                    <a href="https://quantegy.io">refresh the cc blackops</a>.
                 </p>
             </footer>
         </div>
