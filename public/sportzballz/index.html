@@ -13,6 +13,8 @@
         /></noscript>
     </head>
     <body class="is-preload">
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.7.0/d3.min.js"></script>
         <div id="wrapper">
             <div id="bg"></div>
             <div id="overlay"></div>
@@ -45,7 +47,7 @@
                                 <a
                                     href="https://sportzballz.slack.com"
                                     class="icon brands fa-slack"
-                                    ><span class="label">Github</span></a
+                                    ><span class="label">Slack</span></a
                                 >
                             </li>
                             <li>
@@ -58,17 +60,18 @@
                         </ul>
                     </nav>
                 </header>
-                <article id="dash" onload="embedDashboard()">
-                    <h2 class="major">Dashboard</h2>
-                    <table>
-                        <tr>
-                            <td><p>Average Daily ROI: 12%</p></td>
-                            <td><p></p></td>
-                        </tr>
-                    </table>
-                    <div><canvas id="sportsballs"></canvas></div>
-                </article>
-
+                <div id="main">
+                    <article id="dash" onload="embedDashboard()">
+                        <h2 class="major">Dashboard</h2>
+                        <table>
+                            <tr>
+                                <td><p>Average Daily ROI: 12%</p></td>
+                                <td><p></p></td>
+                            </tr>
+                        </table>
+                        <div><canvas id="sportsballs"></canvas></div>
+                    </article>
+                </div>
                 <!-- Footer -->
                 <footer id="footer">
                     <a href="mailto:sportzballz@proton.me"
@@ -91,7 +94,7 @@
             };
         </script>
         <!-- Scripts -->
-        <!-- <script src="assets/js/jquery.min.js"></script> -->
+        <script src="assets/js/jquery.min.js"></script>
         <script src="assets/js/browser.min.js"></script>
         <script src="assets/js/breakpoints.min.js"></script>
         <script src="assets/js/util.js"></script>
