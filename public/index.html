@@ -1,306 +1,63 @@
-
 <!doctype html>
-<html>
-    <head>
-        <title>quantegy</title>
-        <meta charset="utf-8" />
-        <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1, user-scalable=no"
-        />
-        <link rel="stylesheet" href="assets/css/main.css" />
-        <noscript
-            ><link rel="stylesheet" href="assets/css/noscript.css"
-        /></noscript>
-    </head>
-    <body class="is-preload">
-        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.7.0/d3.min.js"></script>
-
-        <!-- kill the curators -->
-        <div id="wrapper">
-            <!-- Header -->
-            <header id="header">
-                <div class="logo">
-                    <span class="icon fa-gem"></span>
-                </div>
-                <div class="content">
-                    <div class="inner">
-                        <h1>Quantegy</h1>
-                        <p>immaterial algorithmic search for alpha</p>
-                    </div>
-                </div>
-                <nav>
-                    <ul>
-                        <li><a href="#intro">Intro</a></li>
-                        <li><a href="#dash">Dash</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </nav>
-                <ul class="icons">
-                    <li>
-                        <a href="https://twitter.com/quantegytrading">
-                            <i class="fa-brands fa-x-twitter"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://github.com/quantegytrading">
-                            <i class="fa-brands fa-github"></i>
-                        </a>
-                    </li>
-                </ul>
-            </header>
-
-            <!-- Main -->
-            <div id="main">
-                <!-- Intro -->
-                <article id="intro">
-                    <h2 class="major">Intro</h2>
-                    <span class="image main"
-                        ><img src="images/pic03.jpg" alt=""
-                    /></span>
-                    <p>
-                        Welcome to Quantegy, where we are dedicated to the
-                        relentless pursuit of value and maximizing returns. At
-                        Quantegy, we believe that opportunities for profit can
-                        be found in every corner of the market, and our mission
-                        is to uncover and exploit these opportunities to their
-                        fullest potential. With a keen eye for value and a
-                        strategic approach to investing, we strive to generate
-                        the highest possible returns for our clients and
-                        stakeholders. Join us as we navigate the ever-changing
-                        landscape of the financial world, seeking out value
-                        wherever it lies, and making the most money possible
-                        along the way.
-                    </p>
-                </article>
-
-                <!-- Work -->
-                <article id="dash" onload="embedDashboard()">
-                    <h2 class="major">Dashboard</h2>
-                    <table>
-                        <tr>
-                            <td><p>3.3x</p></td>
-                        </tr>
-                    </table>
-                    <div><canvas id="sportsballs25"></canvas></div>
-                    <div><canvas id="pickTrends25"></canvas></div>
-                    <div><canvas id="sportsballs"></canvas></div>
-                </article>
-
-                <!-- About -->
-                <article id="about">
-                    <h2 class="major">About</h2>
-                    <span class="image main"
-                        ><img src="images/pic03.jpg" alt=""
-                    /></span>
-                    <p>
-                        Meet Mr. Smith, a simple man with a relentless pursuit
-                        of alpha, wherever it may be found. With a keen eye for
-                        opportunity and a strategic approach to gamesmanship,
-                        Mr. Smith has built a reputation for his ability to
-                        uncover value in even the most obscure corners of the
-                        market. Armed with a deep understanding of machine
-                        learning and a passion for uncovering hidden gems, he
-                        tirelessly seeks out alpha – the measure of an assets
-                        performance relative to the market – in order to
-                        generate superior returns for his clients and
-                        stakeholders. With a track record of success and a
-                        commitment to excellence, Mr. Smith is dedicated to
-                        maximizing returns and capitalizing on opportunities
-                        wherever they may arise.
-                    </p>
-                </article>
-
-                <!-- Contact -->
-                <article id="contact">
-                    <span class="image main"
-                        ><img src="images/pic03.jpg" alt=""
-                    /></span>
-                    <p>
-                        <a
-                            href="mailto:quantegy@pm.me?subject=Web Inquiry"
-                            target="_blank"
-                            >Send an email!</a
-                        >
-                    </p>
-                </article>
-            </div>
-
-            <script>
-                const ctx = document.getElementById("sportsballs");
-                const ctx25 = document.getElementById("sportsballs25");
-                const pt25 = document.getElementById("pickTrends25");
-
-                d3.csv("sportsballs25.csv").then(makeChart25);
-                d3.csv("sportsballs.csv").then(makeChart);
-                d3.csv("pickTrends2025.csv").then(pickTrends25);
-
-                function makeChart(data) {
-                    var dateLabels = data.map(function (d) {
-                        return d.date;
-                    });
-                    var totalsData = data.map(function (d) {
-                        return d.total;
-                    });
-                    new Chart(ctx, {
-                        type: "line",
-                        data: {
-                            labels: dateLabels,
-                            datasets: [{ data: totalsData }],
-                        },
-                        options: {
-                            plugins: { legend: { display: false } },
-                            scales: {
-                                y: {
-                                    min: 300,
-                                    max: 15000,
-                                },
-                            },
-                        },
-                    });
-                }
-
-                function makeChart25(data) {
-                    var dateLabels = data.map(function (d) {
-                        return d.date;
-                    });
-                    var totalsData = data.map(function (d) {
-                        return d.total;
-                    });
-                    var tenData = data.map(function (d) {
-                        return d.ten;
-                    });
-                    new Chart(ctx25, {
-                        type: "line",
-                        data: {
-                            labels: dateLabels,
-                            datasets: [
-                                { 
-                                    label: 'Book Value',
-                                    data: totalsData,
-                                    borderColor: '#00FF00',
-                                },
-                                {
-                                    label: 'Ten Percent',
-                                    data: tenData,
-                                    borderColor: '#006600',
-                                }
-                            ],
-                        },
-                        options: {
-                            plugins: { legend: { display: false } },
-                            scales: {
-                                y: {
-                                    min: 0,
-                                    max: 700,
-                                },
-                            },
-                        },
-                    });
-                }
-                function pickTrends25(data) {
-                    var dateLabels = data.map(function (d) {
-                        return d.Date;
-                    });
-                    var totalsData = data.map(function (d) {
-                        return d.TotalWins/d.TotalPicks * 100;
-                    });
-                    var above5Data = data.map(function (d) {
-                        if (d.Above5Picks == 0) {
-                            d.Above5Picks = 1
-                        }
-                        return d.Above5Wins/d.Above5Picks * 100;
-                    });
-                    var above6Data = data.map(function (d) {
-                        if (d.Above6Picks == 0) {
-                            d.Above6Picks = 1
-                        }
-                        return d.Above6Wins/d.Above6Picks * 100;
-                    });
-                    var above7Data = data.map(function (d) {
-                        if (d.Above7Picks == 0) {
-                            d.Above7Picks = 1
-                        }
-                        return d.Above7Wins/d.Above7Picks * 100;
-                    });
-                    var above8Data = data.map(function (d) {
-                        if (d.Above8Picks == 0) {
-                            d.Above8Picks = 1
-                        }
-                        return d.Above8Wins/d.Above8Picks * 100;
-                    });
-                    new Chart(pt25, {
-                        type: "line",
-                        data: {
-                            labels: dateLabels,
-                            datasets: [
-                                { 
-                                    label: 'Total Wins',
-                                    data: totalsData,
-                                    borderColor: '#3399FF',
-                                    order: 0,
-                                },
-                                {
-                                    label: 'Wins Above .500',
-                                    data: above5Data,
-                                    borderColor: '#99FF33',
-                                    order: 1,
-                                },
-                                {
-                                    label: 'Wins Above .600',
-                                    data: above6Data,
-                                    borderColor: '#FFFF33',
-                                    order: 2,
-                                },
-                                {
-                                    label: 'Wins Above .700',
-                                    data: above7Data,
-                                    borderColor: '#FF9933',
-                                    order: 3,
-                                },
-                                    {
-                                    label: 'Wins Above .800',
-                                    data: above8Data,
-                                    borderColor: '#FF3333',
-                                    order: 4,
-                                },
-                            ],
-                        },
-                        options: {
-                            plugins: { legend: { display: false } },
-                            scales: {
-                                y: {
-                                    min: -20,
-                                    max: 120,
-                                },
-                            },
-                        },
-                    });
-                }
-            </script>
-            <!-- Footer -->
-            <footer id="footer">
-                <p class="copyright">
-                    &copy; 2025:
-                    <a href="https://quantegy.io">Quantegy, Inc</a>.
-                </p>
-                <p class="copyright">
-                    &copy; 2025:
-                    <a href="https://quantegy.io">refresh the cc blackops</a>.
-                </p>
-            </footer>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#090b0a">
+  <meta name="description" content="Quantegy conducts immaterial algorithmic search for alpha across crypto, sports, and every market that leaves a trail of data.">
+  <title>Quantegy — Alpha, wherever it hides</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="alternate icon" href="favicon.ico"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="site.css"><link rel="stylesheet" href="identity.css"><script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js" defer></script><script src="site.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header>
+    <a class="brand" href="#top"><b>Q</b><span>QUANTEGY</span></a>
+    <nav aria-label="Primary"><a href="#system">System</a><a href="#research">Research</a><a href="#principles">Principles</a></nav>
+    <a class="contact-link" href="mailto:quantegy@pm.me?subject=Quantegy%20inquiry">Start a conversation</a>
+  </header>
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="hero-copy reveal">
+        <p class="eyebrow"><i></i> QNTGY//RESEARCH UNIT · EST. 2024</p>
+        <h1>Alpha,<br><em>wherever</em><br>it hides.</h1>
+        <p class="lede">Immaterial algorithmic search across crypto, sports, and every other market willing to leave a trail of data.</p>
+        <div class="actions"><a class="button primary" href="#research">Open the ledger</a><a class="arrow-link" href="#system">Inspect the machine <span>↘</span></a></div>
+      </div>
+      <div class="signal-card reveal">
+        <div class="card-head"><span>LIVE SYSTEM TRACE</span><span class="status"><i></i> PAPER / ARMED</span></div>
+        <div class="terminal" aria-label="System event trace">
+          <p><b>21:00:00.004</b> EVENTBRIDGE <span>tick/hour</span></p>
+          <p><b>21:00:00.119</b> GET_MARKET_DATA <span>binance_usdt</span></p>
+          <p><b>21:00:02.884</b> SQS <span>candles: validated</span></p>
+          <p><b>21:00:03.021</b> ANALYZE_MARKET_DATA <span>signals: 03</span></p>
+          <p><b>21:00:03.506</b> RISK_GATE <span>mode: paper</span></p>
+          <p class="cursor"><b>21:00:03.509</b> EXECUTE_TRADES <span>waiting_</span></p>
         </div>
-
-        <!-- BG -->
-        <div id="bg"></div>
-
-        <!-- Scripts -->
-        <script src="assets/js/jquery.min.js"></script>
-        <script src="assets/js/browser.min.js"></script>
-        <script src="assets/js/breakpoints.min.js"></script>
-        <script src="assets/js/util.js"></script>
-        <script src="assets/js/main.js"></script>
-    </body>
+        <div class="signal-stats"><div><span>01</span><strong>INGEST</strong><small>Market data</small></div><div><span>02</span><strong>ANALYZE</strong><small>Testable signals</small></div><div><span>03</span><strong>CONTROL</strong><small>Risk first</small></div></div>
+      </div>
+    </section>
+    <div class="ticker" aria-hidden="true"><div><span>KILL THE CURATORS</span><i>◆</i><span>BLACK BOXES ARE BUGS</span><i>◆</i><span>NO SIGNAL WITHOUT A RECEIPT</span><i>◆</i><span>REFRESH THE BLACKOPS</span><i>◆</i><span>KILL THE CURATORS</span><i>◆</i><span>BLACK BOXES ARE BUGS</span><i>◆</i><span>NO SIGNAL WITHOUT A RECEIPT</span><i>◆</i><span>REFRESH THE BLACKOPS</span><i>◆</i></div></div>
+    <section class="section" id="system">
+      <div class="section-head reveal"><p class="eyebrow">01 / The machine</p><h2>Three Lambdas.<br>One opinion.</h2><p>The machinery is public. Every idea leaves a trace from raw candle to rejected—or accepted—trade.</p></div>
+      <div class="process-grid">
+        <article class="process reveal"><span>λ/01</span><div class="glyph">GET</div><h3>get-market-data</h3><p>Pull the public tape. Close the candle. Reject anything stale, incomplete, or out of sequence.</p><ul><li>CCXT</li><li>Binance US</li><li>SQS out</li></ul></article>
+        <article class="process reveal"><span>λ/02</span><div class="glyph">ASK</div><h3>analyze-market-data</h3><p>Make the strategies disagree in public. Preserve the signal, the price, and the reason.</p><ul><li>MACD</li><li>RSI</li><li>Patterns</li></ul></article>
+        <article class="process reveal"><span>λ/03</span><div class="glyph">ACT</div><h3>execute-quantegy-trades</h3><p>Assume every message is dangerous. Check limits, duplicates, age, and mode before action.</p><ul><li>Risk gate</li><li>Kill switch</li><li>Audit trail</li></ul></article>
+      </div>
+    </section>
+    <section class="research" id="research">
+      <div class="section-head reveal"><p class="eyebrow">02 / Artifact no. 025</p><h2>The receipts.</h2><p>One sports-model experiment, unvarnished. Wins, losses, and recorded book value—research evidence, not a victory lap.</p></div>
+      <div class="metrics"><div class="metric reveal"><span>Latest model value</span><strong id="latest-value">—</strong><small id="latest-date">Loading dataset</small></div><div class="metric reveal"><span>Change from start</span><strong id="model-change">—</strong><small>Historical experiment</small></div><div class="metric reveal"><span>Recorded decisions</span><strong id="decision-count">—</strong><small>2025 sample</small></div><div class="metric reveal"><span>Aggregate hit rate</span><strong id="hit-rate">—</strong><small>Across recorded picks</small></div></div>
+      <div class="chart-grid"><article class="chart-card reveal"><div class="chart-title"><div><span>MODEL / VALUE</span><h3>Experimental book value</h3></div><span class="key"><i></i> Recorded value</span></div><div class="chart-wrap"><canvas id="value-chart"></canvas></div></article><article class="chart-card reveal"><div class="chart-title"><div><span>MODEL / ACCURACY</span><h3>Daily hit rate</h3></div></div><div class="chart-wrap"><canvas id="accuracy-chart"></canvas></div></article></div>
+      <p class="data-note" id="data-note">Source: Quantegy internal research datasets · Loading latest observation</p>
+    </section>
+    <section class="section principles" id="principles">
+      <div class="principles-copy reveal"><p class="eyebrow">03 / House rules</p><h2>No magic.<br>No alibis.</h2><p>Alpha is a hypothesis that survived costs, uncertainty, and repeated attempts to kill it.</p><a class="arrow-link" href="https://github.com/quantegytrading" target="_blank" rel="noreferrer">Read the source <span>↗</span></a></div>
+      <div class="principle-list"><article class="reveal"><span>01</span><div><h3>Evidence over confidence</h3><p>Track assumptions, baselines, and failure—not just the favorable result.</p></div></article><article class="reveal"><span>02</span><div><h3>Risk is part of the model</h3><p>Position limits and stop conditions belong in the system, not in someone’s memory.</p></div></article><article class="reveal"><span>03</span><div><h3>Automation stays accountable</h3><p>Every signal and action should be attributable, reproducible, and reversible.</p></div></article></div>
+    </section>
+    <section class="contact"><p class="eyebrow">Have a difficult signal to find?</p><h2>Let’s compare notes.</h2><a class="button dark" href="mailto:quantegy@pm.me?subject=Quantegy%20inquiry">quantegy@pm.me <span>↗</span></a></section>
+  </main>
+  <footer><a class="brand" href="#top"><b>Q</b><span>QUANTEGY</span></a><p>Independent quantitative research. Not investment advice.</p><div><a href="https://github.com/quantegytrading" target="_blank" rel="noreferrer">GitHub</a><a href="https://twitter.com/quantegytrading" target="_blank" rel="noreferrer">X / Twitter</a></div><small>© <span id="year">2026</span> Quantegy, Inc.</small></footer>
+</body>
 </html>
